@@ -83,9 +83,6 @@
                 animationtype = "sliderToFadeIn";
                 break;
 
-            case "fadeout":
-                animationtype = "sliderToFadeInOut";
-                break;
             default:
               animationtype = "sliderToFadeInOut";
 
@@ -101,22 +98,56 @@
         });
 
         $('.slider-video').on('play', function () {
+            pause=true;
+          
             $(this).attr('controls', '1');
+            $(this).mouseenter(
+            function(){
+              pause=true;
+            },
+            function(){
+              pause=true;
+            });
         });
 
 
         function CreateSliderImages(){
           $(".sunny_slider").children('li').each(function() {
 
-          innerdiv = document.createElement("div");
-          var imageUrl=$(this).attr('data-src');
+          if($(this).attr('data-type')=="image"){
+              innerdiv = document.createElement("div");
+              var imageUrl=$(this).attr('data-src');
 
-          $(innerdiv).css("background", "url(" + imageUrl + ")");
-          $(this).append(innerdiv);
+              $(innerdiv).css("background", "url(" + imageUrl + ")");
+              $(this).append(innerdiv);
+          }
+          else
+          {
+            if($(this).attr('data-type')=="video")
+          {
+             var videoUrl=$(this).attr('data-src');
+             var cover=$(this).attr('data-cover');
+            var video=document.createElement('video');
+            $(video).addClass("slider-video");
+            video.setAttribute('poster',cover);
+            var sourceMP4 = document.createElement("source");
+            sourceMP4.src = videoUrl;
+            sourceMP4.type = "video/mp4";
+            var sourceogg = document.createElement("source");
+            sourceogg.src = videoUrl;
+            sourceogg.type = "video/ogg";
 
+            video.appendChild(sourceMP4);
+            video.appendChild(sourceogg);
 
-          });
-        }
+            $(this).append(video);
+            var overlay=$( '<div class="overlay-content"><div class="play-button"></div></div>');
+            $(this).append(overlay);
+
+          }}
+
+            });
+          }
 
         function CreateBullets(self){
 

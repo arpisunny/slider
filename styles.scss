@@ -76,20 +76,17 @@ div{       width: 100%;
  overflow: hidden;
 }
 
-
+.overlay-content{
+    position: absolute;
+    top: 19%;}
 .play-button {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 4em;
-  height: 4em;
-  margin-top: -1.5em;
+
   margin-left: -2em;
   border-radius: 1em;
   cursor: pointer;
-  border: 2px solid #bf3636;
-  border-radius: 50%;
-  padding-top: 13px;
     &:after{
       content:"\25b6";
       font-size: 2em;
