@@ -12,7 +12,7 @@
     <div class="slider_container">
 
       <ul id="firstslider" class="sunny_slider">
-        <li>
+      <!--   <li>
           <video class="slider-video" poster="http://tinyurl.com/ne24w38">
            <source src="http://tinyurl.com/npmt9td" type="video/mp4" />
            <source src="http://tinyurl.com/myowmhx" type="video/webm" />
@@ -23,27 +23,14 @@
         </div>
 
         </li>
-        <li><img src="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" alt="" /></li>
-        <li><img src="https://mymodernmet.com/wp/wp-content/uploads/2017/12/high-resolution-new-york-city-photograph-thumbnail.jpg" alt="" /></li>
-        <li><img src="https://amp.businessinsider.com/images/5c1c90f8e04d6243c7019cf6-750-375.jpg" alt="" /></li>
 
-      <!--  <li data-src="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" data-type='image'></li>
+      -->
+        <li data-src="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" data-type='image'></li>
         <li data-src="https://mymodernmet.com/wp/wp-content/uploads/2017/12/high-resolution-new-york-city-photograph-thumbnail.jpg" data-type='image'></li>
         <li data-src="https://amp.businessinsider.com/images/5c1c90f8e04d6243c7019cf6-750-375.jpg" data-type='image'></li>
--->
+
       </ul>
 
-      <div id="counter"></div>
-
-    </div>
-  <div class="slider_container">
-      <ul id="secondslider" class="sunny_slider">
-        <li><img src="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" alt="" /></li>
-        <li><img src="https://mymodernmet.com/wp/wp-content/uploads/2017/12/high-resolution-new-york-city-photograph-thumbnail.jpg" alt="" /></li>
-        <li><img src="https://amp.businessinsider.com/images/5c1c90f8e04d6243c7019cf6-750-375.jpg" alt="" /></li>
-      </ul>
-
-      <div id="counter"></div>
 
 
     </div>
@@ -54,19 +41,20 @@
     <script>
       // slider  initialization
       <!-- You can enable  or disable slideshow ,change the interval and the animation. -->
-      <!-- Animation types are -->
+      <!-- Animation types for now are slide and fade  -->
       $(document).ready(function() {
-          $('#firstslider').SunnySlider({
-            slideShow: false,
-            interval: 5000,
-            animation: 'slide'
-          });
 
-          $('#secondslider').SunnySlider({
+          $('#firstslider').SunnySlider({
             slideShow: true,
             interval: 2000,
-            animation: 'slide'
+            animation: 'fade'
           });
+
+          // $('#secondslider').SunnySlider({
+          //   slideShow: true,
+          //   interval: 4000,
+          //   animation: 'fade'
+          // });
       });
     </script>
   </body>

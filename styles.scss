@@ -3,22 +3,29 @@
   background:#41a2cd;
   margin:20px auto;
   padding:15px;
+  max-width:600px;
 }
 
 .sunny_slider {
     max-width:100%;
-    height:340px;
+    min-width: 100%;
+    min-height: 416px;
     overflow: hidden;
     position:relative;
+    padding-left: 0px;
     li {
-       position: absolute;
-       top: 0px;
-       left: 0px;
+list-style-type: none;
+       top: 0px;position:absolute;
        display:none;
        border: 3px solid white;
-       width:100%;
-
-       img{width:100%;
+       width:98%;
+div{       width: 100%;
+    height: 404px;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center;}
+       img{    width: 100%;
+    display: block;
        }
        &:first-child {
            display:block;
@@ -100,13 +107,62 @@ video{
 /* animations */
 
 
+.fade-in {
 
-.slide{
+  z-index: 1;
+
+  animation: fadeIn 2s linear ;
+  -webkit-animation: fadeIn 2s linear ;
+}
+.fade-out {
+
+  z-index: 1;
+
+  animation: fadeOut 2s linear ;
+  -webkit-animation: fadeOut 2s linear ;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.slidein {
   animation-duration: 3s;
   animation-name: slidein;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
+
 @keyframes slidein {
   from {
     margin-left: 100%;
