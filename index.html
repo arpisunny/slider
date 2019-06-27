@@ -1,0 +1,68 @@
+<!-- -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery plugin  Sunny Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.min.css">
+  </head>
+
+  <body>
+    <div class="slider_container">
+
+      <ul id="firstslider" class="sunny_slider">
+         <li data-url="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" data-type='image'></li>  
+        <li ><img src="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" alt="" /></li>
+        <li><img src="https://mymodernmet.com/wp/wp-content/uploads/2017/12/high-resolution-new-york-city-photograph-thumbnail.jpg" alt="" /></li>
+        <li><img src="https://amp.businessinsider.com/images/5c1c90f8e04d6243c7019cf6-750-375.jpg" alt="" /></li>
+  <li><video width="100%" class="video-wrap" controls >
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video></li>
+      </ul>
+      <ol class="control-nav">
+        <li><a href="#" class="control-active">1</a></li>
+        <li><a href="#" class="">2</a></li>
+        <li><a href="#" class="">3</a></li>
+      </ol>
+      <div id="counter"></div>
+
+
+
+      <ul id="secondslider" class="sunny_slider">
+        <li><img src="https://vastphotos.com/files/uploads/photos/10306/high-resolution-mountains-and-lakes-m.jpg" alt="" /></li>
+        <li><img src="https://mymodernmet.com/wp/wp-content/uploads/2017/12/high-resolution-new-york-city-photograph-thumbnail.jpg" alt="" /></li>
+        <li><img src="https://amp.businessinsider.com/images/5c1c90f8e04d6243c7019cf6-750-375.jpg" alt="" /></li>
+      </ul>
+
+      <div id="counter"></div>
+
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script>
+      // slider  initialization
+      <!-- You can enable  or disable slideshow ,change the interval and the animation. -->
+      <!-- Animation types are -->
+      $(document).ready(function() {
+          $('#firstslider').SunnySlider({
+            slideShow: true,
+            interval: 5000,
+            animation: 'slide'
+          });
+
+          $('#secondslider').SunnySlider({
+            slideShow: true,
+            interval: 2000,
+            animation: 'slide'
+          });
+      });
+    </script>
+  </body>
+
+</html>
