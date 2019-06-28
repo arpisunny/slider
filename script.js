@@ -7,35 +7,44 @@
         var slideamount;
         var animationtype;
         var pause = false;
-        var nextslide;
-        var  nextslide2;
+        var nextslide= null;
+        var nextslide2= null;
         var sliderid=$(this).attr('id');
         var slides = $(this).children();
         var self=$(this);
         var imgheight;
-        var slidernumber;
+        var slidernumber=null;
 
         slideamount = slides.length;
 
         CreateBullets(self);
         CreateSliderImages(self);
-        nextslideinitial = setTimeout(run, arg.interval);
+        var nextslideinitial = setTimeout(run, arg.interval);
 
 
 
         function run() {
-
+          clearTimeout(nextslide2);
+          if(nextslide ){
+              clearTimeout(nextslide);
+              nextslide=null;
+          }
+            clearTimeout(nextslideinitial);
             // hiding previous image and showing next
-              if (parseInt(slidernumber)>0){
-                i=parseInt(slidernumber);
+console.log(slidernumber);
+              if (slidernumber !=null){
+
+                i=slidernumber;
+
               }
             if(!pause){
               if(arg.slideShow) {
-              //  var imgheight=  $(slides[i]).find('img').height();
-              //  $('.sunny_slider').height(+imgheight+'px');
-              console.log("mt");
+                var imgheight=  $(slides[i]).find('img').height();
+                $('.sunny_slider').height(+imgheight+'px');
+
                 $(slides[i]).fadeOut(1000);
                 i++;
+                slidernumber=null;
                 if (i >= slideamount) i = 0;
                 $(slides[i]).fadeIn(1000);
 
@@ -45,24 +54,27 @@
                 $(slidebullet[i]).find('a').addClass('control-active');
                 $(slidebullet).find('a').removeClass('control-active');
                 $(slidebullet[i]).find('a').addClass('control-active');
-
+                nextslide = setTimeout(run, arg.interval);
               }
             }
 
-              nextslide = setTimeout(run, arg.interval);
-            //  clearTimeout(nextslide2);
+
+
         }
 
         $('ol li').on('click', function(){
+            clearTimeout(nextslide);
+            slidernumber=null;
             pause=true;
             var self = $(this);
             var tag=self.find('a');
             $('li a').removeClass('control-active');
             tag.addClass('control-active');
-            clearTimeout(nextslide);
+
             $(slides).fadeOut(1000);
             $(slides).eq(tag.attr('data-slide-to')).fadeIn(1000);
-            slidernumber=tag.attr('data-slide-to');
+            slidernumber=parseInt(tag.attr('data-slide-to'));
+
             nextslide2 = setTimeout(run, arg.interval);
             pause=false;
         });
@@ -99,7 +111,7 @@
 
         $('.slider-video').on('play', function () {
             pause=true;
-          
+
             $(this).attr('controls', '1');
             $(this).mouseenter(
             function(){
